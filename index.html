@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tetris</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="whiteMode">
+  <div id="root">
+    <h1>
+      <span style="color: red">T</span>
+      <span style="color: orange">E</span>
+      <span style="color: yellow">T</span>
+      <span style="color: green">R</span>
+      <span style="color: blue">I</span>
+      <span style="color: purple">S</span>
+    </h1>
+    <div class="main__screen">
+      <div class="main__btn-block">
+        <button class="main__btn btn " id="newGame">новая игра</button>
+        <button class="main__btn btn " id="continues">продолжить</button>
+        <button class="main__btn btn " id="stats">статистика</button>
+      </div>
+
+      <div class="stats invisible">
+        <p class="main__header">Статистика</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Score:</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Line:</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Level:</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn__footer">назад</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
