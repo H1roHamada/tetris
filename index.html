@@ -10,43 +10,75 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="whiteMode">
+<body>
   <div id="root">
-    <h1>
-      <span style="color: red">T</span>
-      <span style="color: orange">E</span>
-      <span style="color: yellow">T</span>
-      <span style="color: green">R</span>
-      <span style="color: blue">I</span>
-      <span style="color: purple">S</span>
-    </h1>
-    <div class="main__screen">
-      <div class="main__btn-block">
-        <button class="main__btn btn " id="newGame">новая игра</button>
-        <button class="main__btn btn " id="continues">продолжить</button>
-        <button class="main__btn btn " id="stats">статистика</button>
-      </div>
+    <div class="menu">
+      <h1>
+        <span style="color: red">T</span>
+        <span style="color: orange">E</span>
+        <span style="color: yellow">T</span>
+        <span style="color: green">R</span>
+        <span style="color: blue">I</span>
+        <span style="color: purple">S</span>
+      </h1>
+      <div class="main__screen">
+        <div class="main__btn-block">
+          <button class="main__btn btn " id="newGame">Играть</button>
+          <button class="main__btn btn invisible" id="continues">продолжить</button>
+          <button class="main__btn btn " id="control">управление</button>
+          <button class="main__btn btn " id="stats">статистика</button>
+        </div>
 
-      <div class="stats invisible">
-        <p class="main__header">Статистика</p>
-        <table>
-          <tbody>
-            <tr>
-              <td>Score:</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>Line:</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>Level:</td>
-              <td>0</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="stats invisible">
+          <p class="main__header">Статистика</p>
+          <table>
+            <tbody>
+              <tr>
+                <td>Score:</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Line:</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>Level:</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <button class="btn btn__footer">назад</button>
+          <button class="btn btn__footer">назад</button>
+        </div>
+        <div class="control invisible">
+          <p class="main__header">Управление</p>
+          <table>
+            <tbody>
+              <tr>
+                <td>пауза / продолжить:</td>
+                <td>enter</td>
+              </tr>
+              <tr>
+                <td>ускориться: </td>
+                <td>стрелка вниз</td>
+              </tr>
+              <tr>
+                <td>повернуть фигуру:</td>
+                <td>стрелка вверх</td>
+              </tr>
+              <tr>
+                <td>движение влево:</td>
+                <td>стрелка влево</td>
+              </tr>
+              <tr>
+                <td>движение вправо:</td>
+                <td>стрелка вправо</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="btn btn__footer">назад</button>
+        </div>
       </div>
     </div>
   </div>

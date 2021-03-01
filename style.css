@@ -1,7 +1,8 @@
 body {
   font-family: 'Press Start 2P', Consolas, monospace;
   margin: 0;
-  /* background-color: rgb(0, 0, 0); */
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
 }
 
 #root {
@@ -11,7 +12,6 @@ body {
 
 #root h1 {
   margin-bottom: 50px;
-  color: #000000;
 }
 
 #root canvas {
@@ -39,7 +39,7 @@ button {
   margin: 0 auto;
   max-width: 600px;
   border: 5px solid;
-  border-color: #000000;
+  border-color: #ffffff;
   border-radius: 15px;
   padding: 15px;
 }
@@ -56,8 +56,8 @@ button {
   cursor: pointer;
   border-radius: 10px;
   background-color: #ffffff00;
-  color: #000000;
-  border-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
   border: 2px solid;
 }
 
@@ -70,21 +70,24 @@ button {
 }
 
 .btn:hover {
-  color: #ffffff;
-  background-color: #000000;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 
 /* !---------STATS--------  */
 
-.stats table {
-  text-align: right;
-  margin-left: 50px;
+table {
+  width: 600px;
 }
 
-.stats table td,
-.stats table th {
-  padding: 6px 6px;
+table td {
+  text-align: right;
+  padding: 12px;
+}
+
+.stats table {
+  width: 250px;
 }
 
 
