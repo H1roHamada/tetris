@@ -5,7 +5,12 @@ import Menu from './src/menu.js';
 
 const element = document.querySelector('#root');
 
+
+
 Menu(View, Game, Controller)
+
+
+
 
 
 

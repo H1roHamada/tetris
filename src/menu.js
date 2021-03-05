@@ -6,30 +6,39 @@ export default function Menu(View, Game, Controller) {
     const stats = document.querySelector('.stats')
     const control = document.querySelector('.control')
     const back = document.querySelectorAll('.btn__footer')
-    let name
+    const score_stat = document.getElementById('score_stat')
+    const line_stat = document.getElementById('line_stat')
+    const level_stat = document.getElementById('level_stat')
 
     btn.forEach(e => e.addEventListener('click', (e) => {
-        name = e.target.id;
-        if (name === 'newGame') {
-            menu.classList.toggle('invisible')
-            const view = new View(root, 480, 640, 20, 10);
-            const game = new Game();
-            const controller = new Controller(game, view);
+        switch (e.target.id) {
+            case 'newGame':
+                menu.classList.toggle('invisible')
+                const view = new View(root, 640, 640, 20, 10);
+                const game = new Game();
+                const controller = new Controller(game, view);
 
-            window.game = game;
-            window.view = view;
-            window.controller = controller;
-        }
-        else if (name === 'continues') {
-            console.log(name)
-        }
-        else if (name === 'control') {
-            btn_block.classList.toggle('invisible')
-            control.classList.toggle('invisible')
-        }
-        else {
-            btn_block.classList.toggle('invisible')
-            stats.classList.toggle('invisible')
+                window.game = game;
+                window.view = view;
+                window.controller = controller;
+                break;
+
+            case 'control':
+                switchScreen(control)
+                break;
+
+            case 'stats':
+                let record = JSON.parse(localStorage.getItem("tetris_stat"));
+                if (record !== undefined) {
+                    record.score !== undefined ? score_stat.innerHTML = record.score : score_stat.innerHTML = '0';
+                    record.lines !== undefined ? line_stat.innerHTML = record.lines : line_stat.innerHTML = '0';
+                    record.level !== undefined ? level_stat.innerHTML = record.level : level_stat.innerHTML = '0';
+                }
+                switchScreen(stats)
+                break;
+
+            default:
+                break;
         }
     }))
 
@@ -37,4 +46,10 @@ export default function Menu(View, Game, Controller) {
         e.target.parentNode.classList.toggle('invisible')
         btn_block.classList.toggle('invisible')
     }))
+
+
+    function switchScreen(screen) {
+        btn_block.classList.toggle('invisible')
+        screen.classList.toggle('invisible')
+    }
 }

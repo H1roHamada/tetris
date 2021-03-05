@@ -31,10 +31,11 @@ export default class View {
         this.playfieldX = this.playfieldBorderWidth;
         this.playfieldY = this.playfieldBorderWidth;
 
-        this.playfieldWidth = this.width * 2 / 3;
+        this.playfieldWidth = this.width / 2;
         this.playfieldHeight = this.height;
 
         this.playfieldInnerWidth = this.playfieldWidth - this.playfieldBorderWidth * 2;
+
         this.playfieldInnerHeight = this.playfieldHeight - this.playfieldBorderWidth * 2;
 
         this.blockWidth = this.playfieldInnerWidth / columns;
@@ -42,7 +43,7 @@ export default class View {
 
         this.panelX = this.playfieldWidth + 20;
         this.panelY = 20;
-        this.panelWidth = this.width / 3;
+        this.panelWidth = this.width;
         this.panelHeight = this.height;
 
         this.element.appendChild(this.canvas);
@@ -91,7 +92,9 @@ export default class View {
 
     /*---------------------------------------------*/
     renderGameOver({ score, lines, level }) {
-        this.clearScreen();
+
+        this.updateRecord(score, lines, level)
+        this.clearScreen(score, lines, level);
 
         this.context.fillStyle = 'white';
         this.context.font = '18px "Press Start 2P"';
@@ -102,6 +105,7 @@ export default class View {
         this.context.fillText(`Lines: ${lines}`, this.width / 2, this.height / 2 + 48);
         this.context.fillText(`Level: ${level}`, this.width / 2, this.height / 2 + 96);
         this.context.fillText('Press ENTER to Restart', this.width / 2, this.height / 2 + 144);
+
     }
     /***********************************************/
 
@@ -109,6 +113,7 @@ export default class View {
 
     /*---------------------------------------------*/
     clearScreen() {
+
         this.context.clearRect(0, 0, this.width, this.height);
     }
     /***********************************************/
@@ -194,5 +199,27 @@ export default class View {
 
     /*---------------------------------------------*/
 
+
+    updateRecord(score, lines, level) {
+        let obj = {
+            score: score,
+            lines: lines,
+            level: level
+        }
+
+        if (localStorage.getItem('tetris_stat') == null) {
+            let firstRecord = JSON.stringify(obj);
+            localStorage.setItem("tetris_stat", firstRecord);
+
+        } else {
+            let prevRecord = JSON.parse(localStorage.getItem("tetris_stat"))
+
+            if (score > prevRecord.score) {
+                let newRecord = JSON.stringify(obj);
+                localStorage.setItem("tetris_stat", newRecord);
+            }
+        }
+
+    }
 
 }
