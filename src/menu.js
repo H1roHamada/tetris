@@ -29,10 +29,10 @@ export default function Menu(View, Game, Controller) {
 
             case 'stats':
                 let record = JSON.parse(localStorage.getItem("tetris_stat"));
-                if (record !== undefined) {
-                    record.score !== undefined ? score_stat.innerHTML = record.score : score_stat.innerHTML = '0';
-                    record.lines !== undefined ? line_stat.innerHTML = record.lines : line_stat.innerHTML = '0';
-                    record.level !== undefined ? level_stat.innerHTML = record.level : level_stat.innerHTML = '0';
+                if (record != undefined) {
+                    record.score != undefined ? score_stat.innerHTML = record.score : score_stat.innerHTML = '0';
+                    record.lines != undefined ? line_stat.innerHTML = record.lines : line_stat.innerHTML = '0';
+                    record.level != undefined ? level_stat.innerHTML = record.level : level_stat.innerHTML = '0';
                 }
                 switchScreen(stats)
                 break;
