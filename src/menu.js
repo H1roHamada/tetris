@@ -28,8 +28,8 @@ export default function Menu(View, Game, Controller) {
                 break;
 
             case 'stats':
-                let record = JSON.parse(localStorage.getItem("tetris_stat"));
-                if (record != undefined) {
+                if (localStorage.getItem("tetris_stat") != undefined) {
+                    let record = JSON.parse(localStorage.getItem("tetris_stat"));
                     record.score != undefined ? score_stat.innerHTML = record.score : score_stat.innerHTML = '0';
                     record.lines != undefined ? line_stat.innerHTML = record.lines : line_stat.innerHTML = '0';
                     record.level != undefined ? level_stat.innerHTML = record.level : level_stat.innerHTML = '0';
